@@ -1,51 +1,51 @@
 # Superpowers
 
-Superpowers is a complete software development workflow for your coding agents, built on top of a set of composable "skills" and some initial instructions that make sure your agent uses them.
+Superpowers — це повний робочий процес розробки програмного забезпечення для ваших агентів кодування, побудований на основі набору компонованих «навичок» та деяких початкових інструкцій, які забезпечують їх використання вашим агентом.
 
-## How it works
+## Як це працює
 
-It starts from the moment you fire up your coding agent. As soon as it sees that you're building something, it *doesn't* just jump into trying to write code. Instead, it steps back and asks you what you're really trying to do. 
+Все починається з моменту запуску вашого агента кодування. Як тільки він бачить, що ви щось створюєте, він не *одразу* намагається писати код. Натомість він робить крок назад і запитує вас, що ви хочете побудувати.
 
-Once it's teased a spec out of the conversation, it shows it to you in chunks short enough to actually read and digest. 
+Після того як він зібрав специфікацію з розмови, він показує її вам частинами, достатньо короткими, щоб можна було прочитати та засвоїти.
 
-After you've signed off on the design, your agent puts together an implementation plan that's clear enough for an enthusiastic junior engineer with poor taste, no judgement, no project context, and an aversion to testing to follow. It emphasizes true red/green TDD, YAGNI (You Aren't Gonna Need It), and DRY. 
+Коли ви затвердили дизайн, ваш агент складає план реалізації, який достатньо зрозумілий для прилежного молодшого інженера без досвіду, без судження, без контексту проекту та...
 
-Next up, once you say "go", it launches a *subagent-driven-development* process, having agents work through each engineering task, inspecting and reviewing their work, and continuing forward. It's not uncommon for Claude to be able to work autonomously for a couple hours at a time without deviating from the plan you put together.
+Далі, як тільки ви скажете «го», він запускає процес *subagent-driven-development*, де агенти проходять через кожне інженерне завдання, перевіряють свою роботу та рухаються далі. Це не...
 
-There's a bunch more to it, but that's the core of the system. And because the skills trigger automatically, you don't need to do anything special. Your coding agent just has Superpowers.
+Тут є багато чого ще, але це суть системи. І тому що навички спрацьовують автоматично, вам не потрібно нічого робити особливого. Ваш агент кодування просто має Superpowers.
 
 
-## Sponsorship
+## Спонсорство
 
-If Superpowers has helped you do stuff that makes money and you are so inclined, I'd greatly appreciate it if you'd consider [sponsoring my opensource work](https://github.com/sponsors/obra).
+Якщо Superpowers допоміг вам робити речі, які приносять гроші, і ви схильні це зробити, я був би вдячний, якби ви розглянули [спонсорство моєї роботи з відкритим кодом](https://github.com/sponsors/obra).
 
-Thanks! 
+Спасибі!
 
 - Jesse
 
 
-## Installation
+## Установка
 
-**Note:** Installation differs by platform. Claude Code or Cursor have built-in plugin marketplaces. Codex and OpenCode require manual setup.
+**Примітка:** Установка різниться за платформами. Claude Code або Cursor мають вбудовані маркетплейси плагінів. Codex та OpenCode потребують ручного налаштування.
 
 
-### Claude Code (via Plugin Marketplace)
+### Claude Code (через Marketplace)
 
-In Claude Code, register the marketplace first:
+У Claude Code зареєструйте маркетплейс спочатку:
 
 ```bash
 /plugin marketplace add obra/superpowers-marketplace
 ```
 
-Then install the plugin from this marketplace:
+Потім установіть плагін із цього маркетплейсу:
 
 ```bash
 /plugin install superpowers@superpowers-marketplace
 ```
 
-### Cursor (via Plugin Marketplace)
+### Cursor (через Marketplace)
 
-In Cursor Agent chat, install from marketplace:
+У Cursor Agent chat установіть з маркетплейсу:
 
 ```text
 /plugin-add superpowers
@@ -53,105 +53,105 @@ In Cursor Agent chat, install from marketplace:
 
 ### Codex
 
-Tell Codex:
+Скажіть Codex:
 
 ```
 Fetch and follow instructions from https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.codex/INSTALL.md
 ```
 
-**Detailed docs:** [docs/README.codex.md](docs/README.codex.md)
+**Детальна документація:** [docs/README.codex.md](docs/README.codex.md)
 
 ### OpenCode
 
-Tell OpenCode:
+Скажіть OpenCode:
 
 ```
 Fetch and follow instructions from https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.opencode/INSTALL.md
 ```
 
-**Detailed docs:** [docs/README.opencode.md](docs/README.opencode.md)
+**Детальна документація:** [docs/README.opencode.md](docs/README.opencode.md)
 
-### Verify Installation
+### Перевірка установки
 
-Start a new session in your chosen platform and ask for something that should trigger a skill (for example, "help me plan this feature" or "let's debug this issue"). The agent should automatically invoke the relevant superpowers skill.
+Розпочніть нову сесію у вибраній платформі та попросіть щось, що повинно спрацювати навичку (наприклад, «help me plan this feature» або «let's debug this issue»). Агент повинен автоматично...
 
-## The Basic Workflow
+## Базовий робочий процес
 
-1. **brainstorming** - Activates before writing code. Refines rough ideas through questions, explores alternatives, presents design in sections for validation. Saves design document.
+1. **brainstorming** - Активується перед написанням коду. Уточнює грубі ідеї через запитання, досліджує альтернативи, представляє дизайн частинами для затвердження. Зберігає документ дизайну.
 
-2. **using-git-worktrees** - Activates after design approval. Creates isolated workspace on new branch, runs project setup, verifies clean test baseline.
+2. **using-git-worktrees** - Активується після затвердження дизайну. Створює ізольоване робоче середовище на новій гілці, запускає налаштування проекту, перевіряє чистий базовий рівень тестів.
 
-3. **writing-plans** - Activates with approved design. Breaks work into bite-sized tasks (2-5 minutes each). Every task has exact file paths, complete code, verification steps.
+3. **writing-plans** - Активується з затвердженим дизайном. Розбиває роботу на невеликі завдання (2-5 хвилин кожне). Кожне завдання має точні шляхи файлів, повний код, кроки перевірки.
 
-4. **subagent-driven-development** or **executing-plans** - Activates with plan. Dispatches fresh subagent per task with two-stage review (spec compliance, then code quality), or executes in batches with human checkpoints.
+4. **subagent-driven-development** або **executing-plans** - Активується з планом. Відправляє свіжого підагента на завдання з двостадійним переглядом (відповідність специфікації, потім якість коду), або виконує партіями...
 
-5. **test-driven-development** - Activates during implementation. Enforces RED-GREEN-REFACTOR: write failing test, watch it fail, write minimal code, watch it pass, commit. Deletes code written before tests.
+5. **test-driven-development** - Активується під час реалізації. Застосовує RED-GREEN-REFACTOR: напишіть тест, що не проходить, спостерігайте за відмовою, напишіть мінімальний код, спостерігайте за успіхом, зафіксуйте. Видаляє код, написаний до...
 
-6. **requesting-code-review** - Activates between tasks. Reviews against plan, reports issues by severity. Critical issues block progress.
+6. **requesting-code-review** - Активується між завданнями. Переглядає за планом, звітує про проблеми за серйозністю. Критичні проблеми блокують прогрес.
 
-7. **finishing-a-development-branch** - Activates when tasks complete. Verifies tests, presents options (merge/PR/keep/discard), cleans up worktree.
+7. **finishing-a-development-branch** - Активується при завершенні завдань. Перевіряє тести, представляє опції (merge/PR/keep/discard), очищує worktree.
 
-**The agent checks for relevant skills before any task.** Mandatory workflows, not suggestions.
+**Агент перевіряє наявність відповідних навичок перед будь-яким завданням.** Обов'язкові робочі процеси, не пропозиції.
 
-## What's Inside
+## Що всередині
 
-### Skills Library
+### Бібліотека навичок
 
-**Testing**
-- **test-driven-development** - RED-GREEN-REFACTOR cycle (includes testing anti-patterns reference)
+**Тестування**
+- **test-driven-development** - RED-GREEN-REFACTOR цикл (включає довідник антипатернів тестування)
 
-**Debugging**
-- **systematic-debugging** - 4-phase root cause process (includes root-cause-tracing, defense-in-depth, condition-based-waiting techniques)
-- **verification-before-completion** - Ensure it's actually fixed
+**Налагодження**
+- **systematic-debugging** - 4-фазовий процес пошуку корінної причини (включає root-cause-tracing, defense-in-depth, condition-based-waiting технікі)
+- **verification-before-completion** - Переконатися, що це дійсно виправлено
 
-**Collaboration** 
-- **brainstorming** - Socratic design refinement
-- **writing-plans** - Detailed implementation plans
-- **executing-plans** - Batch execution with checkpoints
-- **dispatching-parallel-agents** - Concurrent subagent workflows
-- **requesting-code-review** - Pre-review checklist
-- **receiving-code-review** - Responding to feedback
-- **using-git-worktrees** - Parallel development branches
-- **finishing-a-development-branch** - Merge/PR decision workflow
-- **subagent-driven-development** - Fast iteration with two-stage review (spec compliance, then code quality)
+**Співпраця** 
+- **brainstorming** - Сократівське уточнення дизайну
+- **writing-plans** - Детальні плани реалізації
+- **executing-plans** - Пакетне виконання з контрольними точками
+- **dispatching-parallel-agents** - Одночасні робочі процеси підагентів
+- **requesting-code-review** - Попередня перевірка контрольного списку
+- **receiving-code-review** - Відповідь на відгуки
+- **using-git-worktrees** - Паралельні гілки розробки
+- **finishing-a-development-branch** - Робочий процес рішення merge/PR
+- **subagent-driven-development** - Швидка ітерація з двостадійним переглядом (відповідність специфікації, потім якість коду)
 
-**Meta**
-- **writing-skills** - Create new skills following best practices (includes testing methodology)
-- **using-superpowers** - Introduction to the skills system
+**Мета**
+- **writing-skills** - Створіть нові навички, дотримуючись найкращих практик (включає методологію тестування)
+- **using-superpowers** - Введення в систему навичок
 
-## Philosophy
+## Філософія
 
-- **Test-Driven Development** - Write tests first, always
-- **Systematic over ad-hoc** - Process over guessing
-- **Complexity reduction** - Simplicity as primary goal
-- **Evidence over claims** - Verify before declaring success
+- **Test-Driven Development** - Пишіть тести спершу, завжди
+- **Systematic over ad-hoc** - Процес замість вгадування
+- **Complexity reduction** - Простота як основна мета
+- **Evidence over claims** - Перевіряйте перед оголошенням успіху
 
-Read more: [Superpowers for Claude Code](https://blog.fsck.com/2025/10/09/superpowers/)
+Читайте далі: [Superpowers для Claude Code](https://blog.fsck.com/2025/10/09/superpowers/)
 
-## Contributing
+## Внесення внеску
 
-Skills live directly in this repository. To contribute:
+Навички живуть безпосередньо в цьому репозиторії. Щоб внести внесок:
 
-1. Fork the repository
-2. Create a branch for your skill
-3. Follow the `writing-skills` skill for creating and testing new skills
-4. Submit a PR
+1. Fork репозиторій
+2. Створіть гілку для своєї навички
+3. Дотримуйтесь навички `writing-skills` для створення та тестування нових навичок
+4. Надішліть PR
 
-See `skills/writing-skills/SKILL.md` for the complete guide.
+Дивіться `skills/writing-skills/SKILL.md` для повного посібника.
 
-## Updating
+## Оновлення
 
-Skills update automatically when you update the plugin:
+Навички оновлюються автоматично при оновленні плагіна:
 
 ```bash
 /plugin update superpowers
 ```
 
-## License
+## Ліцензія
 
-MIT License - see LICENSE file for details
+MIT License - див. файл LICENSE для деталей
 
-## Support
+## Підтримка
 
 - **Issues**: https://github.com/obra/superpowers/issues
 - **Marketplace**: https://github.com/obra/superpowers-marketplace
