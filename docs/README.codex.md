@@ -1,72 +1,72 @@
-# Superpowers for Codex
+# Суперпотужності для Codex
 
-Guide for using Superpowers with OpenAI Codex via native skill discovery.
+Посібник з використання Superpowers з OpenAI Codex через вбудовану систему розпізнавання навичок.
 
-## Quick Install
+## Швидке встановлення
 
-Tell Codex:
+Скажіть Codex:
 
 ```
 Fetch and follow instructions from https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.codex/INSTALL.md
 ```
 
-## Manual Installation
+## Ручне встановлення
 
-### Prerequisites
+### Передумови
 
 - OpenAI Codex CLI
 - Git
 
-### Steps
+### Кроки
 
-1. Clone the repo:
+1. Клонуйте репозиторій:
    ```bash
    git clone https://github.com/obra/superpowers.git ~/.codex/superpowers
    ```
 
-2. Create the skills symlink:
+2. Створіть посилання на навички:
    ```bash
    mkdir -p ~/.agents/skills
    ln -s ~/.codex/superpowers/skills ~/.agents/skills/superpowers
    ```
 
-3. Restart Codex.
+3. Перезавантажте Codex.
 
 ### Windows
 
-Use a junction instead of a symlink (works without Developer Mode):
+Використовуйте junction замість посилання (працює без Developer Mode):
 
 ```powershell
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills"
 cmd /c mklink /J "$env:USERPROFILE\.agents\skills\superpowers" "$env:USERPROFILE\.codex\superpowers\skills"
 ```
 
-## How It Works
+## Як це працює
 
-Codex has native skill discovery — it scans `~/.agents/skills/` at startup, parses SKILL.md frontmatter, and loads skills on demand. Superpowers skills are made visible through a single symlink:
+Codex має вбудовану систему розпізнавання навичок — він сканує `~/.agents/skills/` під час запуску, парсить frontmatter SKILL.md і завантажує навички за потребою. Навички Superpowers стають видимими через одне посилання:
 
 ```
 ~/.agents/skills/superpowers/ → ~/.codex/superpowers/skills/
 ```
 
-The `using-superpowers` skill is discovered automatically and enforces skill usage discipline — no additional configuration needed.
+Навичка `using-superpowers` автоматично розпізнається і забезпечує дисциплінований приклад використання навичок — додаткової конфігурації не потрібно.
 
-## Usage
+## Використання
 
-Skills are discovered automatically. Codex activates them when:
-- You mention a skill by name (e.g., "use brainstorming")
-- The task matches a skill's description
-- The `using-superpowers` skill directs Codex to use one
+Навички розпізнаються автоматично. Codex активує їх, коли:
+- Ви згадуєте навичку за назвою (наприклад, "use brainstorming")
+- Завдання відповідає опису навички
+- Навичка `using-superpowers` спрямовує Codex на використання однієї з них
 
-### Personal Skills
+### Особисті навички
 
-Create your own skills in `~/.agents/skills/`:
+Створюйте свої навички в `~/.agents/skills/`:
 
 ```bash
 mkdir -p ~/.agents/skills/my-skill
 ```
 
-Create `~/.agents/skills/my-skill/SKILL.md`:
+Створіть `~/.agents/skills/my-skill/SKILL.md`:
 
 ```markdown
 ---
@@ -79,17 +79,17 @@ description: Use when [condition] - [what it does]
 [Your skill content here]
 ```
 
-The `description` field is how Codex decides when to activate a skill automatically — write it as a clear trigger condition.
+Поле `description` визначає, як Codex вирішує активувати навичку автоматично — напишіть його як чітку умову активації.
 
-## Updating
+## Оновлення
 
 ```bash
 cd ~/.codex/superpowers && git pull
 ```
 
-Skills update instantly through the symlink.
+Навички оновлюються миттєво через посилання.
 
-## Uninstalling
+## Видалення
 
 ```bash
 rm ~/.agents/skills/superpowers
@@ -100,21 +100,21 @@ rm ~/.agents/skills/superpowers
 Remove-Item "$env:USERPROFILE\.agents\skills\superpowers"
 ```
 
-Optionally delete the clone: `rm -rf ~/.codex/superpowers` (Windows: `Remove-Item -Recurse -Force "$env:USERPROFILE\.codex\superpowers"`).
+За бажанням видаліть клон: `rm -rf ~/.codex/superpowers` (Windows: `Remove-Item -Recurse -Force "$env:USERPROFILE\.codex\superpowers"`).
 
-## Troubleshooting
+## Усунення неполадок
 
-### Skills not showing up
+### Навички не відображаються
 
-1. Verify the symlink: `ls -la ~/.agents/skills/superpowers`
-2. Check skills exist: `ls ~/.codex/superpowers/skills`
-3. Restart Codex — skills are discovered at startup
+1. Перевірте посилання: `ls -la ~/.agents/skills/superpowers`
+2. Перевірте наявність навичок: `ls ~/.codex/superpowers/skills`
+3. Перезавантажте Codex — навички розпізнаються під час запуску
 
-### Windows junction issues
+### Проблеми з junction в Windows
 
-Junctions normally work without special permissions. If creation fails, try running PowerShell as administrator.
+Junctions зазвичай працюють без спеціальних дозволів. Якщо створення не вдалося, спробуйте запустити PowerShell від імені адміністратора.
 
-## Getting Help
+## Отримання допомоги
 
-- Report issues: https://github.com/obra/superpowers/issues
-- Main documentation: https://github.com/obra/superpowers
+- Повідомляйте про проблеми: https://github.com/obra/superpowers/issues
+- Основна документація: https://github.com/obra/superpowers
